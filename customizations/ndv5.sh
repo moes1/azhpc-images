@@ -25,5 +25,3 @@ then
     exit ${error_code}
 fi
 
-## load nvidia-peermem module
-modprobe nvidia-peermem

@@ -34,6 +34,9 @@ case \$vmSize in
     standard_nd96is*_h100_v5)
         /opt/azurehpc/customizations/ndv5.sh;;
 
+    standard_nd96is*_mi300x_v5)
+        /opt/azurehpc/customizations/ndv5.sh;;
+
     *) echo "No SKU customization for \$vmSize";;
 esac
 EOF
@@ -56,12 +59,6 @@ fi
 #     systemctl stop nvme-raid
 #     systemctl disable nvme-raid
 # fi
-
-# Remove NVIDIA peer memory module
-if lsmod | grep nvidia_peermem &> /dev/null
-then 
-    rmmod nvidia_peermem
-fi
 
 # Clear topo and graph files
 rm -rf /opt/microsoft/ncv4
