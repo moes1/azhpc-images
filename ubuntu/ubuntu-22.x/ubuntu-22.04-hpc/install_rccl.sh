@@ -6,6 +6,8 @@ sudo apt-get install -y rocblas rccl-dev rccl-rdma-sharp-plugins
 sudo sysctl kernel.numa_balancing=0
 echo "kernel.numa_balancing=0" | sudo tee -a /etc/sysctl.conf
 
+sudo apt install libstdc++-12-dev
+
 git clone https://github.com/ROCmSoftwarePlatform/rccl-tests
 cd rccl-tests
 
@@ -16,7 +18,7 @@ RCCLDIR="/opt/rocm/rccl"
 HIPDIR="/opt/rocm/hip"
 
 
-echo "gfx940" > target.lst
+echo "gfx942" > target.lst
 
 ROCM_TARGET_LST=$(pwd)/target.lst make MPI=1 MPI_HOME=$HPCX HIP_HOME=$HIPDIR \
         NCCL_HOME=$RCCLDIR CUSTOM_RCCL_LIB=$RCCLLIB

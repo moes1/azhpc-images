@@ -46,13 +46,6 @@ chmod 755 /usr/sbin/setup_sku_customizations.sh
 cat <<EOF >/usr/sbin/remove_sku_customizations.sh
 #!/bin/bash
 
-# Stop nvidia fabric manager
-if systemctl is-active --quiet nvidia-fabricmanager
-then
-    systemctl stop nvidia-fabricmanager
-    systemctl disable nvidia-fabricmanager
-fi
-
 # Stop nvme raid service
 # if systemctl is-active --quiet nvme-raid
 # then
